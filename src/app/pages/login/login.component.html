@@ -1,1 +1,30 @@
-<p>login works!</p>
+
+<div class="centered">
+  <h1>AvDocs</h1>
+  <form class="login-form" [formGroup]="loginForms" (ngSubmit)="onSubmit(loginForms.value)" role="form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="xyz@domain.com." formControlName="username" required >
+      <mat-error *ngIf="loginForms.get('username').hasError('email') && !loginForms.get('username').hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="loginForms.get('username').hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="8 Digit Password" formControlName="password" required>
+      <mat-error *ngIf="loginForms.get('password').touched && loginForms.get('password').hasError('minlength')">
+        Password <strong>Required and 8 is minlength</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit">
+      <button mat-raised-button color="primary" [disabled]="!loginForms.valid">Login</button>
+    </div>
+
+  </form>
+</div>
+

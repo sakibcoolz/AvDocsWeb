@@ -5,7 +5,7 @@ import { AuthGuard } from '../auth/auth-guard.service';
 export const Full_ROUTES: Routes = [
   {
     path: 'dashboard',
-    loadChildren: './pages/deshboard/deshboard.module#DeshboardModule',
+    loadChildren: () => import('../../pages/deshboard/deshboard.module').then(m => m.DeshboardModule),
     canActivate: [AuthGuard]
   },
   {

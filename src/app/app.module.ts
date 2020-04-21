@@ -11,6 +11,8 @@ import { AuthGuard } from './shared/auth/auth-guard.service';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomHttpInterceptor } from './shared/auth/customHttpInterceptor.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -21,9 +23,14 @@ import { CustomHttpInterceptor } from './shared/auth/customHttpInterceptor.servi
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
-  exports: [SharedModule],
+  exports: [
+    SharedModule,
+    HttpClientModule
+  ],
   providers: [
     AuthService,
     AuthGuard,
