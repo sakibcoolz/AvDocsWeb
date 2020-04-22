@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/auth/auth.service';
 import { Router } from '@angular/router';
+import { jwtToken } from 'src/app/shared/auth/jwtRelate';
 
 @Component({
   selector: 'app-login',
@@ -33,6 +34,7 @@ export class LoginComponent implements OnInit {
     console.log(s)
     this._auth.signinUser(s).subscribe(data => {
       this.datas = data;
+      jwtToken.decode()
       this._router.navigateByUrl('/dashboard');
     },
     (err) => {

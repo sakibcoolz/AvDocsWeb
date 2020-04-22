@@ -15,7 +15,7 @@
   
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input matInput placeholder="8 Digit Password" formControlName="password" required>
+      <input matInput type="password" placeholder="8 Digit Password" formControlName="password" required>
       <mat-error *ngIf="loginForms.get('password').touched && loginForms.get('password').hasError('minlength')">
         Password <strong>Required and 8 is minlength</strong>
       </mat-error>

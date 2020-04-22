@@ -13,19 +13,29 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomHttpInterceptor } from './shared/auth/customHttpInterceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from './pages/navbar/navbar.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentLayoutComponent,
-    FullLayoutComponent
+    FullLayoutComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule
   ],
   exports: [
     SharedModule,
@@ -45,4 +55,5 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
