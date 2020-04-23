@@ -18,6 +18,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule} from '@angular/material/button';
+import { RoleGuard } from './shared/auth/role-guard.service';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatButtonModule} from '@angular/material/button';
   providers: [
     AuthService,
     AuthGuard,
+    RoleGuard,
     {
       provide: LocationStrategy, useClass: HashLocationStrategy
     },

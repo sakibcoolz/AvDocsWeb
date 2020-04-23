@@ -1,26 +1,25 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <span>AvDocs</span>
-        
-            <button mat-button [matMenuTriggerFor]="animals">Animal index</button>
-        
-
+        <span [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >AvDocs</span>
+            <button mat-button [matMenuTriggerFor]="animals">Menu</button>
         <mat-menu #animals="matMenu">
             <div *ngIf="role != 'admin'">
-            <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+            <button mat-menu-item [matMenuTriggerFor]="opd">OPD</button>
+            </div>
+            <div *ngIf="role === 'admin'">
+                <button mat-menu-item [matMenuTriggerFor]="opd">OPD</button>
             </div>
             <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
         </mat-menu>
 
-        <mat-menu #vertebrates="matMenu">
+        <mat-menu #opd="matMenu">
             <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
             <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
             <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
-            <button mat-menu-item>Birds</button>
-            <button mat-menu-item>Mammals</button>
+            <button mat-menu-item [routerLink]="['/opdTodayappointment']" routerLinkActive="router-link-active" >Todays Appointments</button>
+            <button mat-menu-item [routerLink]="['/opdnewappointment']" routerLinkActive="router-link-active" >New Appointment</button>
+            <button mat-menu-item [routerLink]="['/opdhisappointment']" routerLinkActive="router-link-active" >Appointment History</button>
         </mat-menu>
-
-
         <mat-menu #invertebrates="matMenu">
             <button mat-menu-item>Insects</button>
             <button mat-menu-item>Molluscs</button>
