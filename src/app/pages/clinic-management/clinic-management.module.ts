@@ -5,7 +5,8 @@ import { ClinicManagementRoutingModule } from './clinic-management-routing.modul
 import { ClinicManagementComponent } from './clinic-management.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatTabsModule } from '@angular/material/tabs';
-
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [ClinicManagementComponent],
@@ -14,7 +15,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     ClinicManagementRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule
   ]
 })
 export class ClinicManagementModule { }

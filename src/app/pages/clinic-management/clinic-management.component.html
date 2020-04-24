@@ -1,7 +1,53 @@
 <!-- <p>clinic-management works!</p> -->
 <div class="container">
-    <mat-tab-group>
-        <mat-tab label="Clinic List"> Content 1 </mat-tab>
-        <mat-tab label="Add Clinic"> Content 2 </mat-tab>
-      </mat-tab-group>
+  <mat-tab-group>
+    <mat-tab label="Clinic List"> Content 1 </mat-tab>
+    <mat-tab label="Add Clinic">
+      <h3>Add Clinic</h3>
+      <br>
+      <form class="default-form" [formGroup]="regularForm" (ngSubmit)="onSubmit(regularForm.value)">
+        <div class="form-group">
+          <mat-form-field class="default-input hori">
+            <mat-label>Clinic Name</mat-label>
+            <input matInput formControlName="clinicName" placeholder="Clinic Name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="default-input hori">
+            <mat-label>City Name</mat-label>
+            <input matInput formControlName="cityname" placeholder="City Name" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>Address</mat-label>
+            <textarea matInput formControlName="address" placeholder="address" required></textarea>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>Pincode</mat-label>
+            <input matInput formControlName="pincode" placeholder="pincode" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>District</mat-label>
+            <input matInput formControlName="district" placeholder="District" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>Country</mat-label>
+            <input matInput formControlName="country" placeholder="Country" required>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-10 col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </form>
+    </mat-tab>
+  </mat-tab-group>
 </div>

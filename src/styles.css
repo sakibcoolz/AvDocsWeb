@@ -10,8 +10,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translate(-50%, -50%);
 }
 
-
 .submit button,
 .submit a {
    margin-right: 8px;
+}
+
+
+.default-form {
+  min-width: 150px;
+  max-width: 100%;
+  width: 100%;
+}
+
+.default-form .hori {
+  margin-left: 8px;
+}
+
+
+.default-input {
+  width: 40%;
 }
