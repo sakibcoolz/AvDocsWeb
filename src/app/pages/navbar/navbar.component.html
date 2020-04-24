@@ -9,7 +9,7 @@
             <div *ngIf="role === 'admin'">
                 <button mat-menu-item [matMenuTriggerFor]="opd">OPD</button>
             </div>
-            <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+            <button mat-menu-item [matMenuTriggerFor]="administration">Administration</button>
         </mat-menu>
 
         <mat-menu #opd="matMenu">
@@ -20,14 +20,9 @@
             <button mat-menu-item [routerLink]="['/opdnewappointment']" routerLinkActive="router-link-active" >New Appointment</button>
             <button mat-menu-item [routerLink]="['/opdhisappointment']" routerLinkActive="router-link-active" >Appointment History</button>
         </mat-menu>
-        <mat-menu #invertebrates="matMenu">
-            <button mat-menu-item>Insects</button>
-            <button mat-menu-item>Molluscs</button>
-            <button mat-menu-item>Crustaceans</button>
-            <button mat-menu-item>Corals</button>
-            <button mat-menu-item>Arachnids</button>
-            <button mat-menu-item>Velvet worms</button>
-            <button mat-menu-item>Horseshoe crabs</button>
+        <mat-menu #administration="matMenu">
+            <button mat-menu-item [routerLink]="['/UserManagement']" routerLinkActive="router-link-active" >User Management</button>
+            <button mat-menu-item [routerLink]="['/ClinicManagement']" routerLinkActive="router-link-active" >Clinic Management</button>
         </mat-menu>
 
         <mat-menu #fish="matMenu">

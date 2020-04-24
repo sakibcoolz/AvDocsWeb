@@ -36,6 +36,22 @@ export const Full_ROUTES: Routes = [
       expectedRole: 'admin'
     }
   },
+  { 
+    path: 'UserManagement', 
+    loadChildren: () => import('../../pages/user-management/user-management.module').then(m => m.UserManagementModule),
+    canActivate: [RoleGuard],
+    data: { 
+      expectedRole: 'admin'
+    }
+  },
+  { 
+    path: 'ClinicManagement', 
+    loadChildren: () => import('../../pages/clinic-management/clinic-management.module').then(m => m.ClinicManagementModule),
+    canActivate: [RoleGuard],
+    data: { 
+      expectedRole: 'admin'
+    }
+  },
   {
     path: 'add-user',
     loadChildren: './pages/add-users/add-users.module#AddUsersModule',
