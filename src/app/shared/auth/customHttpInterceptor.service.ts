@@ -15,8 +15,9 @@ export class CustomHttpInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // const storeUser = this._authService.getTokens();
     const storeUser = JSON.parse(localStorage.getItem("currentUser"));
+    //console.log(storeUser)
     const token = storeUser;
-     //alert(JSON.stringify(token));
+    //alert(JSON.stringify(token));
     if (!token) {
       return next.handle(req);
     }
@@ -29,6 +30,7 @@ export class CustomHttpInterceptor implements HttpInterceptor {
       // console.log('before');
       // console.log(cloned);
       // console.log('after');
+      //alert('before send ');
       return next.handle(cloned);
     }
   }

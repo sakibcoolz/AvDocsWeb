@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
+import { Clinic } from 'src/app/shared/model/clinic.model';
+import { ClinicService } from 'src/app/shared/service/clinic.service';
 
 @Component({
   selector: 'app-clinic-management',
@@ -11,8 +13,9 @@ export class ClinicManagementComponent implements OnInit {
 
   regularForm: FormGroup;
   contactList: FormArray;
+  clinics: Clinic;
 
-  constructor(private _fb: FormBuilder) { }
+  constructor(private _fb: FormBuilder, private _clinicService: ClinicService) { }
 
   ngOnInit(): void {
     this.regularForm = this._fb.group({
@@ -55,8 +58,13 @@ export class ClinicManagementComponent implements OnInit {
   }
 
 
-  onSubmit(s: any) {
+  onSubmit(s: Clinic) {
     console.log(s)
+    this._clinicService.addClinic(s).subscribe(data => {
+      this.clinics = data
+      console.log(this.clinics)
+    })
+
   }
 
 }

@@ -3,4 +3,5 @@ export class urls {
     static authenticates = urls.host + '/login';
     static addPrivileges = urls.host + '/privileges/add-privileges';
     static getAllPrivileges = urls.host + '/privileges';
+    static addClinic = urls.host + '/addclinic';
 }

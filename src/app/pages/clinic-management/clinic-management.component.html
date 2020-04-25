@@ -37,7 +37,7 @@
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>Pincode</mat-label>
-            <input matInput formControlName="pincode" placeholder="pincode" required>
+            <input matInput type="number" formControlName="pincode" placeholder="pincode" required>
             <mat-error
               *ngIf="regularForm.get('pincode').touched && regularForm.get('pincode').hasError('minlength') || regularForm.get('pincode').touched && regularForm.get('pincode').hasError('maxlength')">
               pincode <strong>Required and 6 Digit</strong>
