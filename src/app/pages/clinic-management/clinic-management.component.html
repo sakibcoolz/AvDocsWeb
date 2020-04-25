@@ -10,7 +10,8 @@
           <mat-form-field class="default-input">
             <mat-label>Clinic Name</mat-label>
             <input matInput formControlName="clinicName" placeholder="Clinic Name" required>
-            <mat-error *ngIf="regularForm.get('clinicName').touched && regularForm.get('clinicName').hasError('minlength')">
+            <mat-error
+              *ngIf="regularForm.get('clinicName').touched && regularForm.get('clinicName').hasError('minlength')">
               Clinic name <strong>Required and 5 is minlength</strong>
             </mat-error>
           </mat-form-field>
@@ -37,7 +38,8 @@
           <mat-form-field class="default-input">
             <mat-label>Pincode</mat-label>
             <input matInput formControlName="pincode" placeholder="pincode" required>
-            <mat-error *ngIf="regularForm.get('pincode').touched && regularForm.get('pincode').hasError('minlength') || regularForm.get('pincode').touched && regularForm.get('pincode').hasError('maxlength')">
+            <mat-error
+              *ngIf="regularForm.get('pincode').touched && regularForm.get('pincode').hasError('minlength') || regularForm.get('pincode').touched && regularForm.get('pincode').hasError('maxlength')">
               pincode <strong>Required and 6 Digit</strong>
             </mat-error>
           </mat-form-field>
@@ -65,15 +67,17 @@
           <a (click)="addContactButton()" [ngStyle]="{'color': 'red'}">Add Contact</a>
         </div>
 
-        <div formArrayName="contactNo" *ngFor="let item of regularForm.get('contactNo')['controls']; let i=index">
-          <div [formGroupName]="i">
+        <div formArrayName="contactNo">
+          <div *ngFor="let item of contactFormGroup.controls; let i=index" [formGroupName]="i">
             <div class="form-group">
               <mat-form-field class="default-input">
                 <mat-label>Contact No</mat-label>
                 <input type="number" matInput formControlName="telenumber" placeholder="telenumber" required>
-                
+                <mat-error *ngIf="getContactsFormGroup(i).controls['telenumber'].touched">
+                  touched
+                </mat-error>
               </mat-form-field>
-              <a (click)="remove(i)" [ngStyle]="{'color': 'red'}">Remove this Contact</a>
+              <a (click)="remove(i)">Delete</a>
             </div>
           </div>
         </div>
