@@ -7,45 +7,78 @@
       <br>
       <form class="default-form" [formGroup]="regularForm" (ngSubmit)="onSubmit(regularForm.value)">
         <div class="form-group">
-          <mat-form-field class="default-input hori">
+          <mat-form-field class="default-input">
             <mat-label>Clinic Name</mat-label>
             <input matInput formControlName="clinicName" placeholder="Clinic Name" required>
+            <mat-error *ngIf="regularForm.get('clinicName').touched && regularForm.get('clinicName').hasError('minlength')">
+              Clinic name <strong>Required and 5 is minlength</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
-          <mat-form-field class="default-input hori">
+          <mat-form-field class="default-input">
             <mat-label>City Name</mat-label>
             <input matInput formControlName="cityname" placeholder="City Name" required>
+            <mat-error *ngIf="regularForm.get('cityname').touched && regularForm.get('cityname').hasError('minlength')">
+              City name <strong>Required and 3 is minlength</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>Address</mat-label>
             <textarea matInput formControlName="address" placeholder="address" required></textarea>
+            <mat-error *ngIf="regularForm.get('cityname').touched && regularForm.get('cityname').hasError('required')">
+              Address <strong>Required and 3 is minlength</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>Pincode</mat-label>
             <input matInput formControlName="pincode" placeholder="pincode" required>
+            <mat-error *ngIf="regularForm.get('pincode').touched && regularForm.get('pincode').hasError('minlength') || regularForm.get('pincode').touched && regularForm.get('pincode').hasError('maxlength')">
+              pincode <strong>Required and 6 Digit</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>District</mat-label>
             <input matInput formControlName="district" placeholder="District" required>
+            <mat-error *ngIf="regularForm.get('district').touched && regularForm.get('district').hasError('required')">
+              District <strong>Required</strong>
+            </mat-error>
           </mat-form-field>
         </div>
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>Country</mat-label>
             <input matInput formControlName="country" placeholder="Country" required>
+            <mat-error *ngIf="regularForm.get('country').touched && regularForm.get('country').hasError('minlength')">
+              Country <strong>Required </strong>
+            </mat-error>
           </mat-form-field>
         </div>
+
         <div class="form-group">
-          <div class="col-sm-10 col-sm-offset-2">
-            <button type="submit" class="btn btn-primary">Submit</button>
+          <a (click)="addContactButton()" [ngStyle]="{'color': 'red'}">Add Contact</a>
+        </div>
+
+        <div formArrayName="contactNo" *ngFor="let item of regularForm.get('contactNo')['controls']; let i=index">
+          <div [formGroupName]="i">
+            <div class="form-group">
+              <mat-form-field class="default-input">
+                <mat-label>Contact No</mat-label>
+                <input type="number" matInput formControlName="telenumber" placeholder="telenumber" required>
+                
+              </mat-form-field>
+              <a (click)="remove(i)" [ngStyle]="{'color': 'red'}">Remove this Contact</a>
+            </div>
           </div>
+        </div>
+        <div class="submit">
+          <button mat-raised-button color="primary" [disabled]="!regularForm.valid">Submit</button>
         </div>
       </form>
     </mat-tab>

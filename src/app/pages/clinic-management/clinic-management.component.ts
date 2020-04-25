@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { validateVerticalPosition } from '@angular/cdk/overlay';
 
 @Component({
@@ -15,13 +15,29 @@ export class ClinicManagementComponent implements OnInit {
   ngOnInit(): void {
     this.regularForm = this._fb.group({
       'clinicName':['', [Validators.required, Validators.minLength(5)]],
-      'cityname':['', Validators.required],
+      'cityname':['', [Validators.required, Validators.minLength(3)]],
       'address':['', Validators.required],
-      'pincode':['', Validators.required],
+      'pincode':['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
       'district':['', Validators.required],
-      'country':['', Validators.required],
+      'contactNo':this._fb.array([this.addContact()]),
+      'country':['India', [Validators.required, Validators.minLength(4)]],
       'createdBy':[0]
     })
+  }
+
+  addContact():FormGroup {
+    return this._fb.group({
+      'telenumber':['', [Validators.required,Validators.minLength(10), Validators.maxLength(14)]]
+    })
+  }
+
+  addContactButton() :void {
+    (<FormArray>this.regularForm.get('contactNo')).push(this.addContact());
+  }
+
+  remove(i :number) {
+    const control = <FormArray>this.regularForm.get('contactNo');
+    control.removeAt(i)
   }
 
 
