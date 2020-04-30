@@ -63,6 +63,12 @@ export class ClinicManagementComponent implements OnInit {
     this._clinicService.addClinic(s).subscribe(data => {
       this.clinics = data
       console.log(this.clinics)
+      this.regularForm.disable();
+      if (this.clinics.ID) {
+        alert(this.clinics.clinicName+"Saved")
+      } else {
+        alert("Not Save ")
+      }
     })
 
   }
