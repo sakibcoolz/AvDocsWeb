@@ -4,9 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 //Route for content layout with sidebar, navbar and footer
 export const CONTENT_ROUTES: Routes = [
   {
-    path: 'login', 
+    path: 'login',
     loadChildren: () => import('../../pages/login/login.module').then(m => m.LoginModule)
-  }
+  },
+  { path: 'addadmin/:id',
+  loadChildren: () => import('../../pages/add-email-admin/add-email-admin.module').then(m => m.AddEmailAdminModule)
+  },
 ];
 
 

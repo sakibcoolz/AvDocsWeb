@@ -59,7 +59,6 @@ export class ClinicManagementComponent implements OnInit {
     control.removeAt(i)
   }
 
-
   onSubmit(s: Clinic) {
     console.log(s)
     this._clinicService.addClinic(s).subscribe(data => {
