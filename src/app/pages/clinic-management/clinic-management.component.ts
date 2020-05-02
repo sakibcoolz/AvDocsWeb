@@ -27,7 +27,7 @@ export class ClinicManagementComponent implements OnInit {
       district:['', Validators.required],
       contactNo:this._fb.array([this.addContact()]),
       country:['India', [Validators.required, Validators.minLength(4)]],
-      createdBy: [0, Validators.required],
+      emailid: ['', Validators.required],
       concernperson:["", Validators.required]
     })
 

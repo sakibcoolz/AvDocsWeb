@@ -4,6 +4,7 @@ export class urls {
     static addPrivileges = urls.host + '/privileges/add-privileges';
     static getAllPrivileges = urls.host + '/privileges';
     static addClinic = urls.host + '/addclinic';
+    static addEmailAdmin = urls.host+'/addadmin';
 }
 
 // username : sakib@gmail.com

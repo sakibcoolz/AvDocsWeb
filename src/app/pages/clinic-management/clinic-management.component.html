@@ -56,10 +56,10 @@
 
         <div class="form-group">
           <mat-form-field class="default-input">
-            <mat-label>createdBy</mat-label>
-            <input matInput type="number" formControlName="createdBy" placeholder="createdBy" required>
-            <mat-error *ngIf="regularForm.get('createdBy').touched && regularForm.get('createdBy').hasError('required')">
-              createdBy <strong>Required</strong>
+            <mat-label>Email </mat-label>
+            <input matInput type="text" formControlName="emailid" placeholder="Email" required>
+            <mat-error *ngIf="regularForm.get('emailid').touched && regularForm.get('emailid').hasError('required')">
+              Email <strong>Required</strong>
             </mat-error>
           </mat-form-field>
         </div>
@@ -67,10 +67,9 @@
 
         <div class="form-group">
           <mat-form-field class="default-input">
-            <mat-label>concernperson</mat-label>
-            <input matInput formControlName="concernperson" placeholder="concernperson" required>
+            <mat-label>Concern Person</mat-label>
+            <input matInput formControlName="concernperson" placeholder="Concern Person" required>
             <mat-error *ngIf="regularForm.get('concernperson').touched && regularForm.get('concernperson').hasError('required')">
-
               concernperson <strong>Required</strong>
             </mat-error>
           </mat-form-field>

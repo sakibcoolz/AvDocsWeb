@@ -7,7 +7,8 @@ export interface Clinic {
       district: number;
       contactNo: telnumber[];
       country: string;
-      createdBy: number;
+      concernperson: string;
+      emailid: string;
 }
 
 export interface telnumber {
