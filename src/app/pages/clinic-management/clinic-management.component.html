@@ -53,6 +53,36 @@
             </mat-error>
           </mat-form-field>
         </div>
+
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>createdBy</mat-label>
+            <input matInput type="number" formControlName="createdBy" placeholder="createdBy" required>
+            <mat-error *ngIf="regularForm.get('createdBy').touched && regularForm.get('createdBy').hasError('required')">
+              createdBy <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>concernperson</mat-label>
+            <input matInput formControlName="concernperson" placeholder="concernperson" required>
+            <mat-error *ngIf="regularForm.get('concernperson').touched && regularForm.get('concernperson').hasError('required')">
+
+              concernperson <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+
+
+
+
+
+
+
+
         <div class="form-group">
           <mat-form-field class="default-input">
             <mat-label>Country</mat-label>

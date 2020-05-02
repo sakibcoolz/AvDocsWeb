@@ -1,7 +1,10 @@
 export class urls {
-    static host = 'http://10.0.2.102:8000';
+    static host = 'http://203.192.228.45:3579';
     static authenticates = urls.host + '/login';
     static addPrivileges = urls.host + '/privileges/add-privileges';
     static getAllPrivileges = urls.host + '/privileges';
     static addClinic = urls.host + '/addclinic';
 }
+
+// username : sakib@gmail.com
+// passwd :12345678
