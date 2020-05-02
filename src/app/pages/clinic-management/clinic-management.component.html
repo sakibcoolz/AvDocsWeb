@@ -69,18 +69,26 @@
           <mat-form-field class="default-input">
             <mat-label>Concern Person</mat-label>
             <input matInput formControlName="concernperson" placeholder="Concern Person" required>
-            <mat-error *ngIf="regularForm.get('concernperson').touched && regularForm.get('concernperson').hasError('required')">
+            <mat-error
+              *ngIf="regularForm.get('concernperson').touched && regularForm.get('concernperson').hasError('required')">
               concernperson <strong>Required</strong>
             </mat-error>
           </mat-form-field>
         </div>
 
-
-
-
-
-
-
+        <div class="form-group">
+          <mat-form-field class="default-input">
+            <mat-label>Role</mat-label>
+            <mat-select matNativeControl formControlName="role" required>
+              <mat-option value="rootadmin">Root Admin</mat-option>
+              <mat-option value="admin">Admin</mat-option>
+            </mat-select>
+            <mat-error
+              *ngIf="regularForm.get('role').touched && regularForm.get('role').hasError('required')">
+              Role <strong>Required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
 
         <div class="form-group">
           <mat-form-field class="default-input">

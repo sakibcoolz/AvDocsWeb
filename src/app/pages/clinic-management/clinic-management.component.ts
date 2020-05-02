@@ -28,7 +28,8 @@ export class ClinicManagementComponent implements OnInit {
       contactNo:this._fb.array([this.addContact()]),
       country:['India', [Validators.required, Validators.minLength(4)]],
       emailid: ['', Validators.required],
-      concernperson:["", Validators.required]
+      concernperson:["", Validators.required],
+      role: ["", Validators.required]
     })
 
     this.contactList = this.regularForm.get('contactNo') as FormArray;

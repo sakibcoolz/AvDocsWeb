@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [ClinicManagementComponent],
   imports: [
@@ -19,7 +19,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatTabsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ]
 })
 export class ClinicManagementModule { }

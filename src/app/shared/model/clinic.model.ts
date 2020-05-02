@@ -8,6 +8,7 @@ export interface Clinic {
       contactNo: telnumber[];
       country: string;
       concernperson: string;
+      role: string;
       emailid: string;
 }
 
