@@ -8,7 +8,11 @@ export const CONTENT_ROUTES: Routes = [
     loadChildren: () => import('../../pages/login/login.module').then(m => m.LoginModule)
   },
   { path: 'addadmin/:id',
-  loadChildren: () => import('../../pages/add-email-admin/add-email-admin.module').then(m => m.AddEmailAdminModule)
+    loadChildren: () => import('../../pages/add-email-admin/add-email-admin.module').then(m => m.AddEmailAdminModule)
+  },
+  {
+    path: 'addrootadmin/:id',
+    loadChildren: () => import('../../pages/add-root-email-admin/add-root-email-admin.module').then(m => m.AddRootEmailAdminModule)
   },
 ];
 
