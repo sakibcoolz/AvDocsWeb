@@ -10,6 +10,7 @@ export interface Clinic {
       concernperson: string;
       role: string;
       emailid: string;
+      registrationno: number;
 }
 
 export interface telnumber {
