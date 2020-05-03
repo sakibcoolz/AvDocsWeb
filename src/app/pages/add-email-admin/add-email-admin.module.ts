@@ -11,8 +11,9 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
-
+import {MatCardModule} from '@angular/material/card';
+import { MatOptionModule } from '@angular/material/core';
+import {MatGridListModule} from '@angular/material/grid-list';
 @NgModule({
   declarations: [AddEmailAdminComponent],
   imports: [
@@ -26,7 +27,10 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatSelectModule,
     MatRadioModule,
     MatIconModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatOptionModule,
+    MatGridListModule
   ]
 })
 export class AddEmailAdminModule { }

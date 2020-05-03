@@ -18,4 +18,7 @@
   margin: 0 12px;
 }
 
-
+.example-card {
+  max-width: 80%;
+  margin:0.5in;
+}
