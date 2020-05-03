@@ -17,7 +17,8 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule} from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSelectModule} from '@angular/material/select';
 import { RoleGuard } from './shared/auth/role-guard.service';
 
 @NgModule({
@@ -36,7 +37,8 @@ import { RoleGuard } from './shared/auth/role-guard.service';
     MatToolbarModule,
     MatIconModule,
     MatMenuModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSelectModule
   ],
   exports: [
     SharedModule,
