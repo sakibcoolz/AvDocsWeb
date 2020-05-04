@@ -12,8 +12,11 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
-import { MatOptionModule } from '@angular/material/core';
+import { MatOptionModule, MatNativeDateModule } from '@angular/material/core';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+
+
 @NgModule({
   declarations: [AddEmailAdminComponent],
   imports: [
@@ -30,7 +33,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCheckboxModule,
     MatCardModule,
     MatOptionModule,
-    MatGridListModule
-  ]
+    MatGridListModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers:[MatDatepickerModule]
 })
 export class AddEmailAdminModule { }

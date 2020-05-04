@@ -1,55 +1,107 @@
 <p>add-email-admin works!</p>
 {{pname}}
-<div class="container">
-  <!-- <form class="login-form" [formGroup]="formsgroup" (ngSubmit)="onSubmit(formsgroup.value)" role="form">
-    <div class="horizontal-formr">
-    <mat-form-field hintLabel="Max 10 characters" appearance="fill">
-      <mat-label>Enter some input</mat-label>
-      <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-      <mat-hint align="end">{{input.value?.length || 0}}/10</mat-hint>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill">
-      <mat-label>Select me</mat-label>
-      <mat-select>
-        <mat-option value="option">Option</mat-option>
-      </mat-select>
-      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
-    </mat-form-field>
-    </div>
-</form> -->
 
 <mat-card class="example-card">
-  <div class="example-container">
-    <form [formGroup]="formsgroup">
-      <mat-checkbox >Hide required marker</mat-checkbox>
-      <div>
-        <label>Float label: </label>
-        <mat-radio-group >
-          <mat-radio-button value="auto">Auto</mat-radio-button>
-          <mat-radio-button value="always">Always</mat-radio-button>
-        </mat-radio-group>
-      </div>
-
-      <mat-form-field appearance="fill"
-         >
-        <input matInput placeholder="Simple placeholder" required>
+  <form [formGroup]="formsgroup" (ngSubmit)="onSubmit(formsgroup.value)" role="form">
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput #input formControlName="firstname" placeholder="First Name">
       </mat-form-field>
-
-      <mat-form-field appearance="fill" >
-        <mat-label>Both a label and a placeholder</mat-label>
-        <input matInput placeholder="Simple placeholder">
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput #input formControlName="lastname" placeholder="Last Name">
       </mat-form-field>
-
-      <mat-form-field appearance="fill">
-        <mat-select required>
-          <mat-option>-- None --</mat-option>
-          <mat-option value="option">Option</mat-option>
-        </mat-select>
-        <mat-label><mat-icon>favorite</mat-icon> <b> Fancy</b> <i> label</i></mat-label>
+      <mat-form-field>
+        <mat-label>Date of Birth</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" placeholder="Date of Birth">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    </form>
+    </div>
+    <div class="example-container-address">
+      <mat-form-field class="example-full-width">
+        <mat-label>Address 1</mat-label>
+        <input matInput #input formControlName="homeaddress1" placeholder="Home Address 1">
+      </mat-form-field>
+    </div>
+    <div class="example-container-address">
+      <mat-form-field class="example-full-width">
+        <mat-label>Address 2</mat-label>
+        <input matInput #input formControlName="homeaddress2" placeholder="Home Address 2">
+      </mat-form-field>
+    </div>
+    <div class="example-container-address">
+      <mat-form-field class="example-full-width">
+        <mat-label>Address 3</mat-label>
+        <input matInput #input formControlName="homeaddress3" placeholder="Home Address 3">
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Pincode</mat-label>
+        <input matInput #input formControlName="pincode" placeholder="Pincode">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Cityname</mat-label>
+        <input matInput #input formControlName="cityname" placeholder="City Name">
+      </mat-form-field>
+    </div>
+    <div class="example-container-address">
+      <mat-form-field class="example-full-width">
+        <mat-label>University Name</mat-label>
+        <input matInput #input formControlName="university" placeholder="University Name">
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Digree Name</mat-label>
+        <input matInput #input formControlName="degreename" placeholder="Degree Name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Degree Name</mat-label>
+        <input matInput #input formControlName="degreename" placeholder="Degree Name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Passout Year</mat-label>
+        <input matInput type="number" #input formControlName="degreename" placeholder="Degree Name">
+      </mat-form-field>
+    </div>
+    <div class="example-container">
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput type="password" #input formControlName="password" placeholder="Password">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Re-Password</mat-label>
+        <input matInput type="password" #input formControlName="repassword" placeholder="Re-Password">
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-container-address">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="emailid" placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="formsgroup.hasError('emailid') && !formsgroup.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="formsgroup.hasError('required')">
+        Email is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div class="example-container">
+    <mat-form-field>
+      <mat-label>Mobile No.</mat-label>
+      <span matPrefix>+91 &nbsp;</span>
+      <input type="tel" formControlName="contactno" matInput placeholder="555-555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Alternet Mobile Number</mat-label>
+      <span matPrefix>+91 &nbsp;</span>
+      <input type="tel" formControlName="reffcontno" matInput placeholder="555-555-1234">
+      <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
   </div>
+  </form>
 </mat-card>
-
-</div>

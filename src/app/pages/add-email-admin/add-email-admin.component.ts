@@ -17,6 +17,7 @@ export class AddEmailAdminComponent implements OnInit {
   submitted: boolean = false;
   datas: adminId;
   formsgroup: FormGroup;
+  startDate = new Date(1990, 0, 1);
   constructor(
     private _AR: ActivatedRoute,
     private _emailadminservice: AdminEmailAddService,
@@ -45,11 +46,11 @@ export class AddEmailAdminComponent implements OnInit {
       cityname: ["", [Validators.required, Validators.maxLength(15)]],
       university: ["", [Validators.required, Validators.maxLength(50)]],
       degreename: ["", [Validators.required, Validators.maxLength(20)]],
-      passoutyear: ["", Validators.required],
+      passoutyear: ["", [Validators.required, Validators.minLength(4), Validators.minLength(4)]],
       policyaccept: ["", Validators.required],
       password: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
       repassword: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(20)]],
-      emailid: ["", Validators.required],
+      emailid: ["", [Validators.required, Validators.email]],
       contactno: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(12)]],
       reffcontno: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(12)]],
       uniqueid: [this.pname]
