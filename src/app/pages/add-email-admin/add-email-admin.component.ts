@@ -4,6 +4,7 @@ import { AdminEmailAddService } from "src/app/shared/service/admin-email-add.ser
 import { adminId } from "src/app/shared/model/admintoken.model";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddAdmin } from 'src/app/shared/model/add-admin.model';
+import { SaveAdminService } from 'src/app/shared/service/save-admin.service';
 
 @Component({
   selector: "app-add-email-admin",
@@ -17,12 +18,14 @@ export class AddEmailAdminComponent implements OnInit {
   submitted: boolean = false;
   datas: adminId;
   formsgroup: FormGroup;
+  newadmin: AddAdmin;
   startDate = new Date(1990, 0, 1);
   constructor(
     private _AR: ActivatedRoute,
     private _emailadminservice: AdminEmailAddService,
     private _router: Router,
-    private _fb: FormBuilder
+    private _fb: FormBuilder,
+    private _saveAdminService : SaveAdminService
   ) {}
 
   ngOnInit(): void {
@@ -36,12 +39,12 @@ export class AddEmailAdminComponent implements OnInit {
       }
     });
     this.formsgroup=this._fb.group({
-      firstname : ["", [Validators.required, Validators.maxLength(20)]],
-      lastname: ["", [Validators.required, Validators.maxLength(20)]],
+      firstname : ["", Validators.required],
+      lastname: ["", Validators.required],
       dob: ["", Validators.required],
-      homeaddress1: ["", [Validators.required, Validators.maxLength(30)]],
-      homeaddress2: ["", [Validators.required, Validators.maxLength(30)]],
-      homeaddress3: ["", [Validators.required, Validators.maxLength(30)]],
+      homeaddress1: ["", [Validators.required, Validators.maxLength(50)]],
+      homeaddress2: ["", [Validators.required, Validators.maxLength(50)]],
+      homeaddress3: ["", [Validators.required, Validators.maxLength(50)]],
       pincode : ["", [Validators.required, Validators.maxLength(6)]],
       cityname: ["", [Validators.required, Validators.maxLength(15)]],
       university: ["", [Validators.required, Validators.maxLength(50)]],
@@ -59,6 +62,10 @@ export class AddEmailAdminComponent implements OnInit {
 
   onSubmit(v: AddAdmin) {
     console.log(v)
+    this._saveAdminService.saveAdmin(v).subscribe(data => {
+      this.newadmin = data
+      console.log(this.newadmin)
+    })
   }
 
 

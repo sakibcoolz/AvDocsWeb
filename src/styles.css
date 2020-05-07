@@ -10,3 +10,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translate(-50%, -50%);
 }
 
+.example-button-row button,
+.example-button-row a {
+  margin-right: 8px;
+}

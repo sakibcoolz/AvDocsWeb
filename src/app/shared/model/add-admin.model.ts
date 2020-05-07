@@ -15,10 +15,12 @@ export interface AddAdmin {
   policyaccept: boolean;
   password: string;
   repassword: string;
+  oldpassword: string;
+  resetflag: string;
   emailid: string;
-  contactno: number;
-  reffcontno: number;
-  uniqueid: number;
+  contactno: string
+  reffcontno: string;
+  uniqueid: string;
   statusflag: string;
   resetFlag: string;
   CreatedAt: Date;
