@@ -11,10 +11,7 @@ export const Full_ROUTES: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('../../pages/deshboard/deshboard.module').then(m => m.DeshboardModule),
-    canActivate: [RoleGuard],
-    data: {
-      expectedRole: 'addclinic'
-    }
+    canActivate: [AuthGuard]
   },
   {
     path: 'opdnewappointment',
@@ -45,7 +42,7 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../pages/user-management/user-management.module').then(m => m.UserManagementModule),
     canActivate: [RoleGuard],
     data: {
-      expectedRole: 'admin'
+      expectedRole: 'adduser'
     }
   },
   {
@@ -53,12 +50,28 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../pages/clinic-management/clinic-management.module').then(m => m.ClinicManagementModule),
     canActivate: [RoleGuard],
     data: {
-      expectedRole: 'admin'
+      expectedRole: 'addclinic'
     }
   },
   {
     path: 'add-user',
     loadChildren: './pages/add-users/add-users.module#AddUsersModule',
+    canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'adduser'
+    }
+  },
+  {
+    path: 'rightsmanagement',
+    loadChildren: () => import('../../pages/rightsmanagement/rightsmanagement.module').then(m => m.RightsmanagementModule),
+    canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'rights'
+    }
+  },
+  {
+    path: 'unauthorised',
+    loadChildren: () => import('../../pages/unauthorised/unauthorised.module').then(m => m.UnauthorisedModule),
     canActivate: [AuthGuard]
   },
 ];

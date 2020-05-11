@@ -3,9 +3,6 @@
         <span [routerLink]="['/dashboard']" routerLinkActive="router-link-active" >AvDocs</span>
             <button mat-button [matMenuTriggerFor]="animals">Menu</button>
         <mat-menu #animals="matMenu">
-            <div *ngIf="role != 'admin'">
-            <button mat-menu-item [matMenuTriggerFor]="opd">OPD</button>
-            </div>
             <div *ngIf="role === 'admin'">
                 <button mat-menu-item [matMenuTriggerFor]="opd">OPD</button>
             </div>
@@ -21,8 +18,15 @@
             <button mat-menu-item [routerLink]="['/opdhisappointment']" routerLinkActive="router-link-active" >Appointment History</button>
         </mat-menu>
         <mat-menu #administration="matMenu">
+          <div *ngIf="checksrights('adduser')">
             <button mat-menu-item [routerLink]="['/UserManagement']" routerLinkActive="router-link-active" >User Management</button>
+          </div>
+          <div *ngIf="checksrights('addclinic')">
             <button mat-menu-item [routerLink]="['/ClinicManagement']" routerLinkActive="router-link-active" >Clinic Management</button>
+          </div>
+          <div *ngIf="checksrights('rights')">
+            <button mat-menu-item [routerLink]="['/rightsmanagement']" routerLinkActive="router-link-active" >Right Management</button>
+          </div>
         </mat-menu>
 
         <mat-menu #fish="matMenu">
