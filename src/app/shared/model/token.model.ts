@@ -7,6 +7,7 @@ export interface tokens {
 
 
 export interface rights {
+  accessname: boolean;
   servicename: string;
   add: boolean;
   edit: boolean;

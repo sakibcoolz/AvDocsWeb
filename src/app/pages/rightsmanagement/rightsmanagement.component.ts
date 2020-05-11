@@ -1,4 +1,8 @@
+import { AddRightsComponent } from './add-rights/add-rights.component';
+
 import { Component, OnInit } from '@angular/core';
+import { rights } from 'src/app/shared/model/token.model';
+import { jwtToken } from 'src/app/shared/auth/jwtRelate';
 
 @Component({
   selector: 'app-rightsmanagement',
@@ -7,9 +11,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RightsmanagementComponent implements OnInit {
 
-  constructor() { }
+
+  add: boolean;
+  edit: boolean;
+  delete: boolean;
+  view: boolean;
+  constructor() {
+    this.add = jwtToken.addright('rights', true);
+    this.edit = jwtToken.editright('rights', true);
+    this.delete = jwtToken.deleteright('rights', true);
+  }
 
   ngOnInit(): void {
   }
+
+
 
 }

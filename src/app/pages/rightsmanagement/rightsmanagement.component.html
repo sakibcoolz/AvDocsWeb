@@ -1,1 +1,9 @@
-<p>rightsmanagement works!</p>
+<div *ngIf="add">
+  <a [routerLink]="['addright']" routerLinkActive="router-link-active">Add Right</a>
+</div>
+<div *ngIf="edit">
+  <a [routerLink]="['editright']" routerLinkActive="router-link-active">Edit Right</a>
+</div>
+
+
+<router-outlet></router-outlet>

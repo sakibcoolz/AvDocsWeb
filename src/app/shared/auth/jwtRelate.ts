@@ -20,4 +20,20 @@ export class jwtToken {
     static rolefinder() : Array<rights>{
       return this.actualVal().rights
     }
+
+    static addright(right: string, access: boolean):boolean {
+      return this.rolefinder().filter(data => data.servicename === right && data.add === access)[0] === undefined ? false : true;
+    }
+
+    static editright(right: string, access: boolean):boolean {
+      return this.rolefinder().filter(data => data.servicename === right && data.edit === access)[0] === undefined ? false : true;
+    }
+
+    static deleteright(right: string, access: boolean):boolean {
+      return this.rolefinder().filter(data => data.servicename === right && data.delete === access)[0] === undefined ? false : true;
+    }
+
+    static viewright(right: string, access: boolean):boolean {
+      return this.rolefinder().filter(data => data.servicename === right && data.view === access)[0] === undefined ? false : true;
+    }
 }

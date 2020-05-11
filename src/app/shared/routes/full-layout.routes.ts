@@ -42,7 +42,8 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../pages/user-management/user-management.module').then(m => m.UserManagementModule),
     canActivate: [RoleGuard],
     data: {
-      expectedRole: 'adduser'
+      //expectedRole: 'adduser'
+      expectedRole: {servicename: 'adduser', view: true, add : false, edit: false, delete: false}
     }
   },
   {
@@ -50,7 +51,8 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../pages/clinic-management/clinic-management.module').then(m => m.ClinicManagementModule),
     canActivate: [RoleGuard],
     data: {
-      expectedRole: 'addclinic'
+      //expectedRole: 'addclinic'
+      expectedRole: {servicename: 'addclinic', view: true, add : false, edit: false, delete: false}
     }
   },
   {
@@ -66,7 +68,7 @@ export const Full_ROUTES: Routes = [
     loadChildren: () => import('../../pages/rightsmanagement/rightsmanagement.module').then(m => m.RightsmanagementModule),
     canActivate: [RoleGuard],
     data: {
-      expectedRole: 'rights'
+      expectedRole: {servicename: 'rights', view: true, add : false, edit: false, delete: false}
     }
   },
   {
