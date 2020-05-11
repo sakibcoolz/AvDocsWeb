@@ -1,54 +1,58 @@
+import { rights } from './../model/token.model';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/auth-guard.service';
 import { RoleGuard } from '../auth/role-guard.service';
+import { jwtToken } from '../auth/jwtRelate';
 
 //Route for content layout with sidebar, navbar and footer
+
+
 export const Full_ROUTES: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('../../pages/deshboard/deshboard.module').then(m => m.DeshboardModule),
     canActivate: [RoleGuard],
-    data: { 
-      expectedRole: 'admin'
+    data: {
+      expectedRole: 'addclinic'
     }
   },
-  { 
-    path: 'opdnewappointment', 
+  {
+    path: 'opdnewappointment',
     loadChildren: () => import('../../pages/opd-new-appointment/opd-new-appointment.module').then(m => m.OpdNewAppointmentModule),
     canActivate: [RoleGuard],
-    data: { 
+    data: {
       expectedRole: 'admin'
     }
   },
-  { 
-    path: 'opdhisappointment', 
+  {
+    path: 'opdhisappointment',
     loadChildren: () => import('../../pages/opd-history-appointment/opd-history-appointment.module').then(m => m.OpdHistoryAppointmentModule),
     canActivate: [RoleGuard],
-    data: { 
+    data: {
       expectedRole: 'admin'
     }
   },
-  { 
-    path: 'opdTodayappointment', 
+  {
+    path: 'opdTodayappointment',
     loadChildren: () => import('../../pages/opd-today-appointment/opd-today-appointment.module').then(m => m.OpdTodayAppointmentModule),
     canActivate: [RoleGuard],
-    data: { 
+    data: {
       expectedRole: 'admin'
     }
   },
-  { 
-    path: 'UserManagement', 
+  {
+    path: 'UserManagement',
     loadChildren: () => import('../../pages/user-management/user-management.module').then(m => m.UserManagementModule),
     canActivate: [RoleGuard],
-    data: { 
+    data: {
       expectedRole: 'admin'
     }
   },
-  { 
-    path: 'ClinicManagement', 
+  {
+    path: 'ClinicManagement',
     loadChildren: () => import('../../pages/clinic-management/clinic-management.module').then(m => m.ClinicManagementModule),
     canActivate: [RoleGuard],
-    data: { 
+    data: {
       expectedRole: 'admin'
     }
   },

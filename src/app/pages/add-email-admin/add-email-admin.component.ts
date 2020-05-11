@@ -5,6 +5,7 @@ import { adminId } from "src/app/shared/model/admintoken.model";
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddAdmin } from 'src/app/shared/model/add-admin.model';
 import { SaveAdminService } from 'src/app/shared/service/save-admin.service';
+import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: "app-add-email-admin",
@@ -65,6 +66,9 @@ export class AddEmailAdminComponent implements OnInit {
     this._saveAdminService.saveAdmin(v).subscribe(data => {
       this.newadmin = data
       console.log(this.newadmin)
+      this.formsgroup.disable()
+      alert("Admin Saved")
+      this._router.navigateByUrl("/")
     })
   }
 

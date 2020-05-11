@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Client } from '../model/client.model';
 import { urls } from '../service/urls';
+import { jwtToken } from './jwtRelate';
 
 
 @Injectable()
@@ -31,16 +32,16 @@ export class AuthService {
     );
   }
 
-  logout() {   
+  logout() {
     this.token = null;
   }
 
-  getToken() {    
+  getToken() {
     return this.token;
   }
 
   isAuthenticated() {
-    // here you can check if user is authenticated or not through his token 
+    // here you can check if user is authenticated or not through his token
     if (localStorage.getItem("currentUser")){
       return true;
     } else {
