@@ -26,6 +26,14 @@ export interface datarights {
         htmltag: string;
 }
 
+export interface rightmaster {
+  id: number;
+  clinicid: number;
+  rightsname: string;
+  rightdata: datarights[];
+}
+
+
 export interface rights {
   accessname: boolean;
   servicename: string;

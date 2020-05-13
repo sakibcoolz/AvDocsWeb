@@ -8,6 +8,7 @@ export class urls {
     static addEmailAdmin = urls.host+'/addadmin';
     static saveadmin = urls.host+'/saveadmin';
     static sendAllrights = urls.host+'/sendrights';
+    static saveRights = urls.host+'/saverights';
 }
 
 // username : sakib@gmail.com

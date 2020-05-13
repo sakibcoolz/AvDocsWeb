@@ -1,4 +1,4 @@
-import { users, datarights } from './../../../shared/model/token.model';
+import { users, datarights, rightmaster } from './../../../shared/model/token.model';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 import { jwtToken } from 'src/app/shared/auth/jwtRelate';
@@ -99,8 +99,16 @@ export class AddRightsComponent implements OnInit {
     this.formForms.patchValue(this.formForms.value);
   }
 
-  onSubmit(s) {
+  onSubmit(s: rightmaster) {
     console.log(s)
+    this._rightsService.saverights(s).subscribe(data => {
+      this.datas = data;
+      console.log(this.datas)
+      if(this.datas !== undefined){
+        this.formForms.disable();
+        alert('Rights saved')
+      }
+    })
   }
 
 }
