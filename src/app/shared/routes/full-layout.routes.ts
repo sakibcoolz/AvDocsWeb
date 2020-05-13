@@ -43,7 +43,7 @@ export const Full_ROUTES: Routes = [
     canActivate: [RoleGuard],
     data: {
       //expectedRole: 'adduser'
-      expectedRole: {servicename: 'adduser', view: true, add : false, edit: false, delete: false}
+      expectedRole: {servicename: 'user_management', view: true, add : false, edit: false, delete: false}
     }
   },
   {
@@ -52,7 +52,7 @@ export const Full_ROUTES: Routes = [
     canActivate: [RoleGuard],
     data: {
       //expectedRole: 'addclinic'
-      expectedRole: {servicename: 'addclinic', view: true, add : false, edit: false, delete: false}
+      expectedRole: {servicename: 'clinic_managements', view: true, add : false, edit: false, delete: false}
     }
   },
   {

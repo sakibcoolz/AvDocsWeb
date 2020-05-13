@@ -1,4 +1,4 @@
-import { rights } from './../model/token.model';
+import { rights, users } from './../model/token.model';
 import * as jwt_decode from 'jwt-decode';
 import { tokens } from '../model/token.model';
 
@@ -35,5 +35,9 @@ export class jwtToken {
 
     static viewright(right: string, access: boolean):boolean {
       return this.rolefinder().filter(data => data.servicename === right && data.view === access)[0] === undefined ? false : true;
+    }
+
+    static getUser(): users {
+      return this.actualVal().user
     }
 }

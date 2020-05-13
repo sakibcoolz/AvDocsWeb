@@ -1,1 +1,45 @@
 <p>add-rights works!</p>
+<div class="outcards">
+  <mat-card class="cards">
+    <form [formGroup]="formForms" (ngSubmit)="onSubmit(formForms.value)">
+      <mat-form-field class="example-full-width">
+        <mat-label>Rights Name</mat-label>
+        <input matInput placeholder="Right Name" formControlName="rightsname" required >
+        <mat-error *ngIf="formForms.get('rightsname').touched && !formForms.get('rightsname').hasError('required')">
+          Right Name is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="formForms.get('rightsname').hasError('required')">
+          Right Name is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <div formArrayName="rightdata">
+        <table class="table table-hover" border="1">
+          <thead>
+            <tr>
+              <th>Html Tag</th>
+              <th>Add</th>
+              <th>Edit</th>
+              <th>View</th>
+              <th>Delete</th>
+              <th>Comments</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of formForms.get('rightdata')['controls']; let i=index" [formGroupName]="i">
+              <td><input type="text" formControlName="htmltag" disabled></td>
+              <td><input type="checkbox" formControlName="add" ></td>
+              <td><input type="checkbox" formControlName="edit" (change)="editClick(i, $event)"></td>
+              <td><input type="checkbox" formControlName="view" ></td>
+              <td><input type="checkbox" formControlName="delete" (change)="editClick(i, $event)"></td>
+              <td><textarea rows="2" cols="110" formControlName="comments" disabled></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="submit">
+        <button mat-raised-button color="primary" [disabled]="!formForms.valid">Submit</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

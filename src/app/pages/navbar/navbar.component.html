@@ -18,10 +18,10 @@
             <button mat-menu-item [routerLink]="['/opdhisappointment']" routerLinkActive="router-link-active" >Appointment History</button>
         </mat-menu>
         <mat-menu #administration="matMenu">
-          <div *ngIf="checksrights('adduser')">
+          <div *ngIf="checksrights('user_management')">
             <button mat-menu-item [routerLink]="['/UserManagement']" routerLinkActive="router-link-active" >User Management</button>
           </div>
-          <div *ngIf="checksrights('addclinic')">
+          <div *ngIf="checksrights('clinic_managements')">
             <button mat-menu-item [routerLink]="['/ClinicManagement']" routerLinkActive="router-link-active" >Clinic Management</button>
           </div>
           <div *ngIf="checksrights('rights')">
