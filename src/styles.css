@@ -10,8 +10,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   transform: translate(-50%, -50%);
 }
 
-.outcards {
-
+.word-margin {
+  margin-right: 17px;
+  margin-left: 17px;
 }
 
 .default-form {
