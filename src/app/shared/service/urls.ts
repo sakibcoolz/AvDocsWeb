@@ -9,6 +9,7 @@ export class urls {
     static saveadmin = urls.host+'/saveadmin';
     static sendAllrights = urls.host+'/sendrights';
     static saveRights = urls.host+'/saverights';
+    static getClinicRightsId = urls.host+'/getAllRightsbyId'
 }
 
 // username : sakib@gmail.com

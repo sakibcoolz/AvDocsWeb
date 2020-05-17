@@ -40,4 +40,8 @@ export class jwtToken {
     static getUser(): users {
       return this.actualVal().user
     }
+
+    static getClinicId(): number {
+      return this.actualVal().user.clinicid
+    }
 }

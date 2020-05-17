@@ -12,9 +12,10 @@ import { EditRightsComponent } from './edit-rights/edit-rights.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { ViewRightsComponent } from './view-rights/view-rights.component';
 
 @NgModule({
-  declarations: [RightsmanagementComponent, AddRightsComponent, EditRightsComponent],
+  declarations: [RightsmanagementComponent, AddRightsComponent, EditRightsComponent, ViewRightsComponent],
   imports: [
     CommonModule,
     RightsmanagementRoutingModule,

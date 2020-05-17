@@ -33,6 +33,16 @@ export interface rightmaster {
   rightdata: datarights[];
 }
 
+export interface clinicright {
+  ID: number;
+  CreatedAt: Date;
+  UpdatedAt: Date;
+  DeletedAt: Date;
+  clinicmaster_id: number;
+  rightsname: string;
+  Rightsservicemapper: string;
+}
+
 
 export interface rights {
   accessname: boolean;
