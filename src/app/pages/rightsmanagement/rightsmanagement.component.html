@@ -1,15 +1,9 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
     <div class="word-margin" *ngIf="add">
-      <a [routerLink]="['addright']" routerLinkActive="router-link-active"
-        >Add Right</a
-      >
-    </div>
-
-    <div class="word-margin" *ngIf="edit">
-      <a [routerLink]="['editright']" routerLinkActive="router-link-active"
-        >Edit Right</a
-      >
+      <button mat-button [routerLink]="['addright']" routerLinkActive="router-link-active" color="primary">
+        Add Right
+      </button>
     </div>
   </div>
 </div>
