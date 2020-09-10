@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-edit-rights',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditRightsComponent implements OnInit {
 
-  constructor() { }
+  pname;
+  constructor(
+    private _AR: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this._AR.params.subscribe((data) => {
+      this.pname = data["id"];
+    });
   }
 
 }

@@ -1,6 +1,6 @@
 
 <div class="centered">
-  <h1>ClinicDocs</h1>
+  <h1>QueryDocs</h1>
   <form class="login-form" [formGroup]="loginForms" (ngSubmit)="onSubmit(loginForms.value)" role="form">
     <mat-form-field class="example-full-width">
       <mat-label>Username</mat-label>
@@ -12,7 +12,7 @@
         Email is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
       <input matInput type="password" placeholder="8 Digit Password" formControlName="password" required>

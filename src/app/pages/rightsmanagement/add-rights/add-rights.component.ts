@@ -110,6 +110,5 @@ export class AddRightsComponent implements OnInit {
       }
     })
   }
-
 }
 

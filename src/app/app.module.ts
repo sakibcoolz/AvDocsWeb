@@ -20,13 +20,15 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
 import { RoleGuard } from './shared/auth/role-guard.service';
+import { QueryComponent } from './query/query.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContentLayoutComponent,
     FullLayoutComponent,
-    NavbarComponent
+    NavbarComponent,
+    QueryComponent
   ],
   imports: [
     BrowserModule,

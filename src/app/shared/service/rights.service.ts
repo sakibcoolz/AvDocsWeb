@@ -25,4 +25,8 @@ export class RightsService {
     return this._httpClient.get<clinicright[]>(urls.getClinicRightsId+'/'+s)
   }
 
+  deletebyid(s: number): Observable<any> {
+    return this._httpClient.delete<any>(urls.deleteright+'/'+s)
+  }
+
 }

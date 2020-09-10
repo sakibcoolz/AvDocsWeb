@@ -28,7 +28,7 @@ const routes: Routes = [
         }
       },
       {
-        path:'editright',
+        path:'editright/:id',
         component: EditRightsComponent,
         canActivate: [RoleGuard],
         data: {

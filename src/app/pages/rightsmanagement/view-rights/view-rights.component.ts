@@ -24,6 +24,7 @@ export class ViewRightsComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
   dataSource = new MatTableDataSource<clinicright>();
+
   constructor(private _rightsService : RightsService) {
     this.clinicid = jwtToken.getClinicId()
     this.add = jwtToken.addright('rights', true);
@@ -39,6 +40,15 @@ export class ViewRightsComponent implements OnInit {
     })
   }
 
+  deleteRights(id: number) {
+    this._rightsService.deletebyid(id).subscribe(data => {
+      data = data
+    })
+    alert('Delete User '+id)
+    this._rightsService.getrightbyid(this.clinicid).subscribe(data => {
+      this.dataSource.data = data;
+    })
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();

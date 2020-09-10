@@ -1,3 +1,19 @@
 <p>user-management works!</p>
 
+<div [innerHTML]=this.datas></div>
+<p></p>
+<br>
+<form class="login-form" [formGroup]="queryForms" (ngSubmit)="onSubmit(queryForms.value)" role="form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Username</mat-label>
+    <input matInput placeholder="xyz@domain.com." formControlName="query" required >
+    <mat-error *ngIf="!queryForms.get('query').hasError('required')">
+      Please enter a valid query
+    </mat-error>
+  </mat-form-field>
+  <div class="submit">
+    <button mat-raised-button color="primary" [disabled]="!queryForms.valid">Login</button>
+  </div>
+</form>
+
 
